@@ -1,0 +1,9 @@
+{
+    "background_color": "#F4F7FE",
+    "company_color": "#6D3914",
+    "no_data": "#B3B3B3",
+    "pending_color": "#D19745",
+    "for_approval_color": "#7f6a3e",
+    "approved_color": "#0FAA91",
+    "rejected_color": "#6D2023"
+}

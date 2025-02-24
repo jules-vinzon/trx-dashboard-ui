@@ -1,0 +1,27 @@
+{
+    "presets": ["next/babel"],
+  
+    "env": {
+        "development": {
+            "plugins": [
+            //   ["transform-remove-console", { "exclude": [ "error", "warn"] }],
+              ["babel-plugin-styled-components", {
+                "minify": true,
+                "transpileTemplateLiterals": true,
+                "pure": true
+              }],
+              ["import", {"libraryName": "antd"}]
+            ]
+          },
+          "production": {
+            "plugins": [ 
+              ["babel-plugin-styled-components", {
+                "minify": true,
+                "transpileTemplateLiterals": true,
+                "pure": true
+              }],
+              ["transform-remove-console", { "exclude": [ "error", "warn"] }] // remove console.log when built to server
+            ]
+          }
+    }
+  }

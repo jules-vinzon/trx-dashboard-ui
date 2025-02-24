@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "next",
+    "next/core-web-vitals",
+    "plugin:react/recommended"
+  ],
+  "plugins": ["unused-imports"],
+  "rules": {
+    "unused-imports/no-unused-imports": "error",
+    "import/no-anonymous-default-export": "off",
+    "react/display-name": "off",
+    "react/prop-types": "off",
+    "no-unused-vars": "error"
+  }
+}
