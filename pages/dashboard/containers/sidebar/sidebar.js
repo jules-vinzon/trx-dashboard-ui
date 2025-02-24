@@ -23,7 +23,14 @@ export default function Sidebar(props) {
       <SidebaStyles collapsed={props.collapsed}> 
         <Flex align="center" justify="center">
             <div className="sidebar-logo"> 
-                <Image className="trx-logo" src="/trx-logo.png" alt="Kroma Logo" />    
+            <Image 
+              className="trx-logo" 
+              src="/trx-logo.png" 
+              alt="Trx Logo" 
+              width={100}
+              height={100}
+              layout="intrinsic"
+            />   
             </div>
         </Flex>
         <Menu 

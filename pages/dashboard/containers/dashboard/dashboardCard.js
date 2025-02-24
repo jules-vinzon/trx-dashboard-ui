@@ -2,8 +2,7 @@ import React from 'react';
 import { Typography, Card, Tag } from 'antd';
 import colors from 'components/utilities/colors'
 import * as moment from 'moment-timezone';
-
-
+import Mqtt from 'helpers/mqtt.js';
 
 const { Paragraph } = Typography;
 
@@ -36,33 +35,33 @@ export default function DasboardCar(props) {
     return (
         <div className='dashboard-root-card'>
             { props.fetchedTrxData?.map((permitsData) => {
-                return <Card
-                    key={permitsData._id}
-                    className='dashboard-card'
-                    title={cardHeader(permitsData)}
-                >
-                    <div className="message-container">
-                        <div style={{ display: 'flex' }}>
-                            <span style={{ fontWeight: 'bold' }}>Transaction ID: </span>
-                            <Paragraph style={{ margin: 0, marginLeft: 8, fontSize: 11 }} copyable>{permitsData?.request_id}</Paragraph>
+                return (<>
+                    <Mqtt/>
+                    <Card
+                        key={permitsData._id}
+                        className='dashboard-card'
+                        title={cardHeader(permitsData)}
+                    >
+                        <div className="message-container">
+                            <div style={{ display: 'flex' }}>
+                                <span style={{ fontWeight: 'bold' }}>Transaction ID: </span>
+                                <Paragraph style={{ margin: 0, marginLeft: 8, fontSize: 11 }} copyable>{permitsData?.request_id}</Paragraph>
+                            </div>
+                            <div style={{ display: 'flex' }}>
+                                <span style={{ fontWeight: 'bold' }}>Balance Before: </span>
+                                <Paragraph style={{ margin: 0, marginLeft: 8, fontSize: 11 }} copyable>{permitsData?.balance_before}</Paragraph>
+                            </div>
+                            <div style={{ display: 'flex' }}>
+                                <span style={{ fontWeight: 'bold' }}>Balance After: </span>
+                                <Paragraph style={{ margin: 0, marginLeft: 8, fontSize: 11 }} copyable>{permitsData?.balance_after}</Paragraph>
+                            </div>
+                            <div style={{ display: 'flex' }}>
+                                <span style={{ fontWeight: 'bold', marginRight: 8 }}>Date Filed: </span>
+                                {moment.parseZone(permitsData?.created_at).tz('Asia/Manila').format('MMMM D, YYYY hh:mm A')}
+                            </div>
                         </div>
-                        <div style={{ display: 'flex' }}>
-                            <span style={{ fontWeight: 'bold' }}>Balance Before: </span>
-                            <Paragraph style={{ margin: 0, marginLeft: 8, fontSize: 11 }} copyable>{permitsData?.balance_before}</Paragraph>
-                        </div>
-                        <div style={{ display: 'flex' }}>
-                            <span style={{ fontWeight: 'bold' }}>Balance After: </span>
-                            <Paragraph style={{ margin: 0, marginLeft: 8, fontSize: 11 }} copyable>{permitsData?.balance_after}</Paragraph>
-                        </div>
-                        <div style={{ display: 'flex' }}>
-                            <span style={{ fontWeight: 'bold', marginRight: 8 }}>Date Filed: </span>
-                            {moment.parseZone(permitsData?.created_at).tz('Asia/Manila').format('MMMM D, YYYY hh:mm A')}
-                        </div>
-
-                    </div>
-
-
-                </Card>
+                    </Card>
+                </>)
             })}
 
         </div>

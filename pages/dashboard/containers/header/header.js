@@ -46,11 +46,6 @@ export default function CustomHeader() {
             <Text type="secondary" style={{ fontSize: '12px' }}>{ loginData?.role  }</Text>
           </div>
           <MenuList
-            title={texts.topbar_menu_list_edit_profile}
-            leftIcon={<UserOutlined />}
-            size='large'
-          />
-          <MenuList
             title={texts.topbar_menu_list_logout}
             leftIcon={<LogoutOutlined />}
             size='large'
