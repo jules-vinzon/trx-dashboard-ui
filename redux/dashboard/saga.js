@@ -45,7 +45,7 @@ export function* fetchTrx() {
 
 // API REQUESTS
 function fetchPermitsApi(id) {
-    return get(`transactions/fetch/${id}`);
+    return get(`/api/transactions/fetch/${id}`);
 }
 
 export default function* rootSaga() {
