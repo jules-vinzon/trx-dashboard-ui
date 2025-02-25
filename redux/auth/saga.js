@@ -134,19 +134,19 @@ export function* logout() {
 }
 
 function getPublicKey(payload) {
-  return post(`users/get/key`, payload);
+  return post(`/api/users/get/key`, payload);
 }
 
 function loginRequest(payload) {
-  return post(`users/login`, payload);
+  return post(`/api/users/login`, payload);
 }
 
 function logoutApi(payload) {
-  return post(`users/logout`, payload);
+  return post(`/api/users/logout`, payload);
 }
 
 function refetchAuthApi() {
-  return fetchWithForbidden(`users/refetch`, {
+  return fetchWithForbidden(`/api/users/refetch`, {
     headers: {
       ...headers,
       token: localStorage.getItem('idToken')
