@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import HeaderStyles from './header.styles';
 import { Popover, Typography } from "antd";
-import { UserOutlined, LogoutOutlined } from '@ant-design/icons';
+import { LogoutOutlined } from '@ant-design/icons';
 import { AvatarPlaceholder } from "components/utilities/customIcons.js";
 import TopbarDropdownWrapper from './headerDropdown.styles';
 import MenuList from 'components/customComponents/globalMenuList/menuList.js';
